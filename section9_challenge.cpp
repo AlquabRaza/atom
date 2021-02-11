@@ -39,6 +39,7 @@ If the list is empty you should display. "Unable to find mean- no data"
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(){
@@ -118,19 +119,18 @@ switch (user_inp) {
   case 's':
   {
   cout<<"Display the Smallest Number"<<endl;
-  for(int i{0}; i<v.size(); ++i)
-    for(int j{i+1}; j<v.size(); ++j)
-  {
-
-  }
-
-  }
+  cout << "\nMax Element = "
+         << *min_element(v.begin(), v.end());
   break;
+  }
 
   case 'L':
-  case 'l':
-  cout<<"Display the Largest Number"<<endl;
+  case 'l':{
+  cout<<"Display the Smallest Number"<<endl;
+  cout << "\nMin Element = "
+         << *max_element(v.begin(), v.end());
   break;
+  }
 
   case 'Q':
   case 'q':
