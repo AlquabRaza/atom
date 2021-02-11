@@ -1,5 +1,5 @@
-section 9
-Challenge
+// Section 9
+// Challenge
 /*
   This challenge is about using a collection (list) of integers and allowing the user
   to select options from a menu to perform operations on the list.
@@ -34,3 +34,106 @@ If the list is empty you should display. "Unable to find mean- no data"
 
   and so on.....
 */
+
+
+#include <iostream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+int main(){
+
+  vector<int> v {10,20,30,40,50,60,70,80,90,100};
+  char user_inp;
+  int a{};
+  double run_sum{0}, avg_nums{0};
+
+   cout<<"P- Print Numbers"<<endl;
+   cout<<"A- Add a Number"<<endl;
+   cout<<"M- Display mean of the Numbers"<<endl;
+   cout<<"S- Display the smallest Number"<<endl;
+   cout<<"L- Display the largest Number"<<endl;
+   cout<<"Q- Quit\n"<<endl;
+
+cout<<"Choose from the Menu :";
+cin>>user_inp;
+
+cout<<"\n=============================================\n\n";
+switch (user_inp) {
+  case 'P':
+  case 'p':
+  {
+  cout<<"Numbers are Printed below :"<<endl;
+
+  if (v.size()!=0) {
+    cout<<"["<<" ";
+    for(auto num:v)
+    {
+    cout<<num<<" ";
+    }
+    cout<<"]";
+  }
+    else
+   {
+     cout<<"[] "<<"- the list is empty.";
+   }
+
+  break;
+  }
+
+  case 'A':
+  case 'a':
+  {
+  cout<<"Add a Number"<<endl;
+  cout<<"Enter the Number to be added :"<<endl;
+  cin>>a;
+  v.push_back(a);
+  cout<<a<<" - was added.";
+  break;
+  }
+
+  case 'M':
+  case 'm':
+  {
+  cout<<"Mean of the Numbers is :"<<endl;
+  for(auto num:v)
+  {
+    run_sum += num;
+  }
+  if (v.size()!=0)
+  {
+  avg_nums = run_sum/ v.size();
+
+   cout<<fixed<<setprecision(2);
+   cout<<avg_nums<<endl;
+  }
+  else
+  {
+  cout<<"Unable to find Mean no data.";
+  }
+  break;
+  }
+
+  case 'S':
+  case 's':
+  {
+  cout<<"Display the Smallest Number"<<endl;
+  }
+  break;
+
+  case 'L':
+  case 'l':
+  cout<<"Display the Largest Number"<<endl;
+  break;
+
+  case 'Q':
+  case 'q':
+  cout<<"Thanks, Good Bye!!"<<endl;
+  break;
+
+  default:
+    cout<<"Sorry Invalid Input"<<endl;
+  }
+
+
+}
