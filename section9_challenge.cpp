@@ -44,30 +44,40 @@ using namespace std;
 
 int main(){
 
-  vector<int> v {10,20,30,40,50,60,70,80,90,100};
+  vector<int> v {};
   char user_inp;
-  int a{};
+  int a{}, num_items{};
   double run_sum{0}, avg_nums{0};
 
-   cout<<"P- Print Numbers"<<endl;
-   cout<<"A- Add a Number"<<endl;
-   cout<<"M- Display mean of the Numbers"<<endl;
-   cout<<"S- Display the smallest Number"<<endl;
-   cout<<"L- Display the largest Number"<<endl;
-   cout<<"Q- Quit\n"<<endl;
+  cout<<"\t\t\t\t\t\t\t\tHow many data itmes do you have : ";
+  cin>>num_items;
 
-cout<<"Choose from the Menu :";
+  for(int k=0; k<num_items ; k++){
+  int data_items;
+  cout<< "\t\t\t\t\t\t\t\tEnter data item "<<k+1<<" : ";
+  cin>>data_items;
+  v.push_back(data_items);
+ }
+   cout<<"\t\t\t\t\t\t\t\t"<<"==========================================\n"<<endl;
+   cout<<"\t\t\t\t\t\t\t\tP- Print Numbers"<<endl;
+   cout<<"\t\t\t\t\t\t\t\tA- Add a Number"<<endl;
+   cout<<"\t\t\t\t\t\t\t\tM- Display mean of the Numbers"<<endl;
+   cout<<"\t\t\t\t\t\t\t\tS- Display the smallest Number"<<endl;
+   cout<<"\t\t\t\t\t\t\t\tL- Display the largest Number"<<endl;
+   cout<<"\t\t\t\t\t\t\t\tQ- Quit\n"<<endl;
+
+cout<<"\t\t\t\t\t\t\t\tChoose from the Menu :";
 cin>>user_inp;
 
-cout<<"\n=============================================\n\n";
+cout<<"\t\t\t\t\t\t\t\t"<<"=============================================\n\n";
 switch (user_inp) {
   case 'P':
   case 'p':
   {
-  cout<<"Numbers are Printed below :"<<endl;
+  cout<<"\t\t\t\t\t\t\t\tNumbers are Printed below :"<<endl;
 
   if (v.size()!=0) {
-    cout<<"["<<" ";
+    cout<<"\t\t\t\t\t\t\t\t["<<" ";
     for(auto num:v)
     {
     cout<<num<<" ";
@@ -76,7 +86,7 @@ switch (user_inp) {
   }
     else
    {
-     cout<<"[] "<<"- the list is empty.";
+     cout<<"\t\t\t\t\t\t\t\t[] "<<"- the list is empty.";
    }
 
   break;
@@ -85,18 +95,18 @@ switch (user_inp) {
   case 'A':
   case 'a':
   {
-  cout<<"Add a Number"<<endl;
-  cout<<"Enter the Number to be added :"<<endl;
+  cout<<"\t\t\t\t\t\t\t\tAdd a Number"<<endl;
+  cout<<"\t\t\t\t\t\t\t\tEnter the Number to be added :"<<endl;
   cin>>a;
   v.push_back(a);
-  cout<<a<<" - was added.";
+  cout<<"\t\t\t\t\t\t\t\t"<<a<<" - was added.";
   break;
   }
 
   case 'M':
   case 'm':
   {
-  cout<<"Mean of the Numbers is :"<<endl;
+  cout<<"\t\t\t\t\t\t\t\tMean of the Numbers is :"<<endl;
   for(auto num:v)
   {
     run_sum += num;
@@ -106,11 +116,11 @@ switch (user_inp) {
   avg_nums = run_sum/ v.size();
 
    cout<<fixed<<setprecision(2);
-   cout<<avg_nums<<endl;
+   cout<<"\t\t\t\t\t\t\t\t"<<avg_nums<<endl;
   }
   else
   {
-  cout<<"Unable to find Mean no data.";
+  cout<<"\t\t\t\t\t\t\t\tUnable to find Mean no data.";
   }
   break;
   }
@@ -118,28 +128,28 @@ switch (user_inp) {
   case 'S':
   case 's':
   {
-  cout<<"Display the Smallest Number"<<endl;
-  cout << "\nMax Element = "
+  cout<<"\t\t\t\t\t\t\t\tDisplay the Smallest Number"<<endl;
+  cout << "\t\t\t\t\t\t\t\t\nMax Element = "
          << *min_element(v.begin(), v.end());
   break;
   }
 
   case 'L':
   case 'l':{
-  cout<<"Display the Smallest Number"<<endl;
-  cout << "\nMin Element = "
+  cout<<"\t\t\t\t\t\t\t\tDisplay the Smallest Number"<<endl;
+  cout << "\t\t\t\t\t\t\t\t\nMin Element = "
          << *max_element(v.begin(), v.end());
   break;
   }
 
   case 'Q':
   case 'q':
-  cout<<"Thanks, Good Bye!!"<<endl;
+  cout<<"\t\t\t\t\t\t\t\tThanks, Good Bye!!"<<endl;
   break;
 
   default:
-    cout<<"Sorry Invalid Input"<<endl;
+    cout<<"\t\t\t\t\t\t\t\tSorry Invalid Input"<<endl;
   }
 
-
+return 0;
 }
