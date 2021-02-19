@@ -49,35 +49,35 @@ int main(){
   int a{}, num_items{};
   double run_sum{0}, avg_nums{0};
 
-  cout<<"\t\t\t\t\t\t\t\tHow many data itmes do you have : ";
-  cin>>num_items;
+  // cout<<"\t\t\t\t\t\t\t\tHow many data itmes do you have : ";
+  // cin>>num_items;
+  //
+  // for(int k=0; k<num_items ; k++){
+  // int data_items;
+  // cout<< "\t\t\t\t\t\t\t\tEnter data item "<<k+1<<" : ";
+  // cin>>data_items;
+  // v.push_back(data_items);
+ // }
 
-  for(int k=0; k<num_items ; k++){
-  int data_items;
-  cout<< "\t\t\t\t\t\t\t\tEnter data item "<<k+1<<" : ";
-  cin>>data_items;
-  v.push_back(data_items);
- }
-   cout<<"\t\t\t\t\t\t\t\t"<<"==========================================\n"<<endl;
-   cout<<"\t\t\t\t\t\t\t\tP- Print Numbers"<<endl;
-   cout<<"\t\t\t\t\t\t\t\tA- Add a Number"<<endl;
-   cout<<"\t\t\t\t\t\t\t\tM- Display mean of the Numbers"<<endl;
-   cout<<"\t\t\t\t\t\t\t\tS- Display the smallest Number"<<endl;
-   cout<<"\t\t\t\t\t\t\t\tL- Display the largest Number"<<endl;
-   cout<<"\t\t\t\t\t\t\t\tQ- Quit\n"<<endl;
+  do {
+   cout<<"P- Print Numbers"<<endl;
+   cout<<"A- Add a Number"<<endl;
+   cout<<"M- Display mean of the Numbers"<<endl;
+   cout<<"S- Display the smallest Number"<<endl;
+   cout<<"L- Display the largest Number"<<endl;
+   cout<<"Q- Quit\n"<<endl;
 
-cout<<"\t\t\t\t\t\t\t\tChoose from the Menu :";
-cin>>user_inp;
+   cout<<"Choose from the Menu :";
+   cin>>user_inp;
 
-cout<<"\t\t\t\t\t\t\t\t"<<"=============================================\n\n";
 switch (user_inp) {
   case 'P':
   case 'p':
   {
-  cout<<"\t\t\t\t\t\t\t\tNumbers are Printed below :"<<endl;
+  cout<<"Numbers are Printed below :"<<endl;
 
   if (v.size()!=0) {
-    cout<<"\t\t\t\t\t\t\t\t["<<" ";
+    cout<<"["<<" ";
     for(auto num:v)
     {
     cout<<num<<" ";
@@ -86,7 +86,7 @@ switch (user_inp) {
   }
     else
    {
-     cout<<"\t\t\t\t\t\t\t\t[] "<<"- the list is empty.";
+     cout<<"[] "<<"- the list is empty.\n"<<endl;
    }
 
   break;
@@ -95,18 +95,18 @@ switch (user_inp) {
   case 'A':
   case 'a':
   {
-  cout<<"\t\t\t\t\t\t\t\tAdd a Number"<<endl;
-  cout<<"\t\t\t\t\t\t\t\tEnter the Number to be added :"<<endl;
+  cout<<"Add a Number"<<endl;
+  cout<<"Enter the Number to be added :"<<endl;
   cin>>a;
   v.push_back(a);
-  cout<<"\t\t\t\t\t\t\t\t"<<a<<" - was added.";
+  cout<<a<<" - was added.\n"<<endl;;
   break;
   }
 
   case 'M':
   case 'm':
   {
-  cout<<"\t\t\t\t\t\t\t\tMean of the Numbers is :"<<endl;
+  cout<<"Mean of the Numbers is :"<<endl;
   for(auto num:v)
   {
     run_sum += num;
@@ -116,11 +116,11 @@ switch (user_inp) {
   avg_nums = run_sum/ v.size();
 
    cout<<fixed<<setprecision(2);
-   cout<<"\t\t\t\t\t\t\t\t"<<avg_nums<<endl;
+   cout<<avg_nums<<"\n"<<endl;
   }
   else
   {
-  cout<<"\t\t\t\t\t\t\t\tUnable to find Mean no data.";
+  cout<<"Unable to find Mean no data.\n"<<endl;
   }
   break;
   }
@@ -128,28 +128,55 @@ switch (user_inp) {
   case 'S':
   case 's':
   {
-  cout<<"\t\t\t\t\t\t\t\tDisplay the Smallest Number"<<endl;
-  cout << "\t\t\t\t\t\t\t\t\nMax Element = "
-         << *min_element(v.begin(), v.end());
+  cout<<"Display the Smallest Number"<<endl;
+  // cout << "\t\t\t\t\t\t\t\t\nMax Element = "
+  //        << *min_element(v.begin(), v.end());  {Not recommended}
+                       // OR
+if(v.size()== 0)
+  cout<<"Can't Print Smallest - no Data.\n"<<endl;
+else if(v.size()==1)
+  cout<<a<<" is the only number.\n"<<endl;
+else{
+  int smallest=v.at(0);
+  for(auto num:v)
+    if(num<smallest)
+      smallest=num;
+      cout<<"The Smallest number is \n"<<smallest<<endl;
+}
+
   break;
   }
 
   case 'L':
   case 'l':{
-  cout<<"\t\t\t\t\t\t\t\tDisplay the Smallest Number"<<endl;
-  cout << "\t\t\t\t\t\t\t\t\nMin Element = "
-         << *max_element(v.begin(), v.end());
+  cout<<"Display the Greatest Number"<<endl;
+  // cout << "\t\t\t\t\t\t\t\t\nMin Element = "
+  //        << *max_element(v.begin(), v.end());
+                           //OR
+                           if(v.size()== 0)
+                             cout<<"Can't Print Greatest no. - no Data.\n"<<endl;
+                             else if(v.size()==1)
+                               cout<<a<<" is the only number.\n"<<endl;
+                           else{
+                             int greatest=v.at(0);
+                             for(auto num:v)
+                               if(num>greatest)
+                                 greatest=num;
+                                 cout<<"The Greatest number is \n"<<greatest<<endl;
+                           }
+
   break;
   }
 
   case 'Q':
   case 'q':
-  cout<<"\t\t\t\t\t\t\t\tThanks, Good Bye!!"<<endl;
+  cout<<"Thanks, Good Bye!!"<<endl;
   break;
 
   default:
-    cout<<"\t\t\t\t\t\t\t\tSorry Invalid Input"<<endl;
+    cout<<"Sorry Invalid Input\n"<<endl;
   }
+} while(user_inp!='q' && user_inp!='Q');
 
 return 0;
 }
